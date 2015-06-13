@@ -10,13 +10,5 @@ html
       var c = document.querySelector('#c');
       var ctx = c.getContext('2d');
 
-      var image = new Image(); //https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D#drawImage%28%29
-
-      image.onload = function(){
-        console.log('load image');
-        ctx.drawImage(image,0,0,c.width,c.height);
-        var savedImage = c.toDataURL();
-        window.open(savedImage);
-      }
-
-      image.src = 'images/doge.jpeg'
+      ctx.fillRect(100,100,100,100);
+      ctx.strokeRect(50,50,50,50);
