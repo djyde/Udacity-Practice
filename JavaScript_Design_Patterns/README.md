@@ -1,0 +1,1 @@
+JavaScript Design Patterns https://www.udacity.com/course/viewer#!/c-ud989
