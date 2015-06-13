@@ -2,30 +2,10 @@
 <html>
   <head>
     <title>Cat Clicker</title>
-    <style>
-      img{
-        max-width: 100px;
-      }
-    </style>
   </head>
   <body>
-    <p>Cat1</p><img id="cat" src="images/cat.jpg">
-    <p id="count">0</p>
-    <p>Cat2</p><img id="cat2" src="images/cat2.jpg">
-    <p id="count2">0</p>
+    <ul id="cats"></ul><img id="cat-image">
   </body>
-  <script>
-    var cat = document.querySelector('#cat');
-    var cat2 = document.querySelector('#cat2');
-    
-    cat.addEventListener('click',function(){
-      var count = document.querySelector('#count').textContent;
-      document.querySelector('#count').textContent = parseInt(count) + 1;
-    })
-    
-    cat2.addEventListener('click',function(){
-      var count = document.querySelector('#count2').textContent;
-      document.querySelector('#count2').textContent = parseInt(count) + 1;
-    })
-  </script>
+  <script id="tpl" type="text/octo-tpl"></script>
+  <script src="base.js"></script>
 </html>

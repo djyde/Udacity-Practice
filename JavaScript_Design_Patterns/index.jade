@@ -2,29 +2,8 @@ doctype html
 html
   head
     title Cat Clicker
-    style.
-      img{
-        max-width: 100px;
-      }
   body
-    p Cat1
-    img#cat(src="images/cat.jpg")
-    p#count 0
-
-    p Cat2
-    img#cat2(src="images/cat2.jpg")
-    p#count2 0
-
-  script.
-    var cat = document.querySelector('#cat');
-    var cat2 = document.querySelector('#cat2');
-    
-    cat.addEventListener('click',function(){
-      var count = document.querySelector('#count').textContent;
-      document.querySelector('#count').textContent = parseInt(count) + 1;
-    })
-
-    cat2.addEventListener('click',function(){
-      var count = document.querySelector('#count2').textContent;
-      document.querySelector('#count2').textContent = parseInt(count) + 1;
-    })
+    ul#cats
+    img#cat-image
+  script#tpl(type="text/octo-tpl").
+  script(src="base.js")
