@@ -4,7 +4,7 @@
     <title>HTML5 Canvas</title>
   </head>
   <body>
-    <canvas id="c" width="500" height="500"></canvas>
+    <canvas id="c" width="400" height="400"></canvas>
     <input id="top" type="text" placeholder="top">
     <input id="bottom" type="text" placeholder="bottom">
     <script>
@@ -12,41 +12,7 @@
         var c = document.querySelector('#c');
         var ctx = c.getContext('2d');
       
-        var image = new Image();
-      
-        image.src = 'images/doge.jpeg';
-      
-        var top,bottom;
-      
-        image.onload = function(){
-          ctx.drawImage(image,0,0,c.width,c.height);
-        }
-      
-        var draw = function(top,bottom){
-          ctx.font="30pt Impact"
-          ctx.textAlign = "center";
-          ctx.strokeStyle = 'black';
-          ctx.lineWidth = 3;
-          ctx.fillStyle = "white";
-          if(top){
-            ctx.fillText(top,c.width / 2,40);
-            ctx.strokeText(top,c.width / 2,40);
-          }
-          if(bottom){
-            ctx.textBaseline="bottom"
-            ctx.fillText(bottom,200,100);
-          }
-        }
-      
-        document.querySelector('#top').oninput = function(){
-          top = this.value;
-          draw(top,bottom);
-        }
-      
-        document.querySelector('#bottom').oninput = function(){
-          bottom = this.value;
-          draw(top,bottom);
-        }
+        var data = ctx.getImageData(0,0,400,400);
       })()
     </script>
   </body>
