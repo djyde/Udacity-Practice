@@ -4,39 +4,49 @@ html
   head
     title HTML5 Canvas
   body
-    canvas#c(width="200", height="200")
+    canvas#c(width="500", height="500")
+
+    input#top(type="text",placeholder="top")
+    input#bottom(type="text",placeholder="bottom")
 
     script.
-      var c = document.querySelector('#c');
-      var ctx = c.getContext('2d');
+      ;(function(){
+        var c = document.querySelector('#c');
+        var ctx = c.getContext('2d');
 
-      //- ctx.fillRect(100,100,100,100);
-      //- ctx.strokeRect(50,50,50,50);
+        var image = new Image();
 
-      //- ctx.beginPath();
-      //- ctx.moveTo(10,10);
-      //- ctx.lineTo(50,50);
-      //- ctx.lineTo(50,10);
-      //- ctx.lineTo(10,10);
-      //- ctx.fill();
-      //- ctx.stroke();
+        image.src = 'images/doge.jpeg';
 
-      ctx.strokeStyle = "#33CC33";
+        var top,bottom;
 
-      ctx.strokeRect(50,50,100,100);
+        image.onload = function(){
+          ctx.drawImage(image,0,0,c.width,c.height);
+        }
 
-      ctx.beginPath();
-      ctx.moveTo(75,75);
-      ctx.lineTo(125,75);
-      ctx.lineTo(125,125);
-      ctx.lineTo(75,75);
+        var draw = function(top,bottom){
+          ctx.font="30pt Impact"
+          ctx.textAlign = "center";
+          ctx.strokeStyle = 'black';
+          ctx.lineWidth = 3;
+          ctx.fillStyle = "white";
+          if(top){
+            ctx.fillText(top,c.width / 2,40);
+            ctx.strokeText(top,c.width / 2,40);
+          }
+          if(bottom){
+            ctx.textBaseline="bottom"
+            ctx.fillText(bottom,200,100);
+          }
+        }
 
-      ctx.fillStyle = "blue";
-      ctx.fill();
+        document.querySelector('#top').oninput = function(){
+          top = this.value;
+          draw(top,bottom);
+        }
 
-      ctx.font = "2em Impact";
-      ctx.textAlign = 'center';
-      //- ctx.fillStyle = 'white';
-      ctx.strokeStyle = "black"
-      ctx.lineWidth = 3;
-      ctx.strokeText('CANVAS MEMES!',c.width / 2,40)
+        document.querySelector('#bottom').oninput = function(){
+          bottom = this.value;
+          draw(top,bottom);
+        }
+      })()
